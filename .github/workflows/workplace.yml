@@ -1,0 +1,86 @@
+  name: Update ISD Meeting Workplace
+
+  on:
+    push:
+      branches:
+        - workplace
+
+  jobs:
+    update:
+      runs-on: ubuntu-latest
+      
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Deploy isd_meeting to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.WORKPLACE_HOST }}
+          username: ${{ secrets.WORKPLACE_USERNAME }}
+          key: ${{ secrets.WORKPLACE_SSH_KEY }}
+          script_stop: true
+          script: |
+            # Clone if not exists, otherwise update
+            REPO_URL=https://github.com/IntelliSync-data/isd_meeting.git
+            if [ ! -d /home/ubuntu/odoo18/addons/isd_meeting/.git ]; then
+              mkdir -p /home/ubuntu/odoo18/addons
+              git clone --branch workplace "$REPO_URL" /home/ubuntu/odoo18/addons/isd_meeting
+            else
+              # ubuntu only have permission to run git commands
+              sudo -u ubuntu bash -c "cd /home/ubuntu/odoo18/addons/isd_meeting && git remote set-url origin $REPO_URL && git fetch origin && git reset --hard origin/workplace"
+            fi
+
+            # Sync isd_meeting directory with rsync (including deletions)
+            sudo mkdir -p /home/ubuntu/custom-addons/isd_meeting
+            sudo rsync -av --delete \
+              /home/ubuntu/odoo18/addons-system/isd_meeting/ /home/ubuntu/custom-addons/isd_meeting/
+
+      - name: Update isd_meeting Module
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.WORKPLACE_HOST }}
+          username: ${{ secrets.WORKPLACE_USERNAME }}
+          key: ${{ secrets.WORKPLACE_SSH_KEY }}
+          script: |
+            echo "Updating apps list..."
+            echo "env['ir.module.module'].update_list(); env.cr.commit()" | sudo -u ubuntu /home/ubuntu/odoo-venv/bin/python /home/ubuntu/odoo18/odoo-bin shell -c /etc/odoo/odoo.conf -d ${{ secrets.WORKPLACE_DB_NAME }} --no-http
+            if [ $? -ne 0 ]; then
+              echo "update_list() FAILED"
+              exit 1
+            fi
+
+            echo "Updating isd_meeting module..."
+            sudo -u ubuntu /home/ubuntu/odoo-venv/bin/python /home/ubuntu/odoo18/odoo-bin -c /etc/odoo/odoo.conf -d ${{ secrets.WORKPLACE_DB_NAME }} -u isd_meeting --stop-after-init --no-http
+            if [ $? -ne 0 ]; then
+              echo "Module update FAILED"
+              exit 1
+            fi
+
+      - name: Restart Odoo Service
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.WORKPLACE_HOST }}
+          username: ${{ secrets.WORKPLACE_USERNAME }}
+          key: ${{ secrets.WORKPLACE_SSH_KEY }}
+          script: |
+            sudo systemctl restart odoo
+
+      - name: Verify Odoo Service
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.WORKPLACE_HOST }}
+          username: ${{ secrets.WORKPLACE_USERNAME }}
+          key: ${{ secrets.WORKPLACE_SSH_KEY }}
+          script: |
+            sleep 5
+            if sudo systemctl is-active --quiet odoo; then
+              echo "Odoo restarted successfully"
+            else
+              echo "Odoo failed to restart"
+              echo "=== systemctl status ==="
+              sudo systemctl status odoo --no-pager
+              echo "=== Last 50 lines of Odoo log ==="
+              sudo tail -n 50 /var/log/odoo/odoo.log
+              exit 1
+            fi
