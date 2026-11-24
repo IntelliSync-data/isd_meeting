@@ -34,7 +34,7 @@
             # Sync isd_meeting directory with rsync (including deletions)
             sudo mkdir -p /home/ubuntu/custom_addons/isd_meeting
             sudo rsync -av --delete \
-              /home/ubuntu/odoo18/addons-system/isd_meeting/ /home/ubuntu/custom_addons/isd_meeting/
+              /home/ubuntu/odoo18/addons/isd_meeting/ /home/ubuntu/custom_addons/isd_meeting/
 
       - name: Update isd_meeting Module
         uses: appleboy/ssh-action@master
