@@ -1,0 +1,57 @@
+.o_isd_meeting_record {
+    i {
+        color: #ef4444 !important;
+    }
+
+    &.o_isd_meeting_record_on {
+        background-color: #ef4444 !important;
+        animation: o_isd_meeting_pulse 1.6s ease-in-out infinite;
+
+        i {
+            color: #fff !important;
+        }
+    }
+}
+
+.o_isd_meeting_badge {
+    z-index: 2;
+    max-width: calc(100% - 1rem);
+    background-color: rgba(17, 24, 39, 0.78);
+    color: #fff;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.o_isd_meeting_dot {
+    flex: 0 0 auto;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: #ef4444;
+    animation: o_isd_meeting_blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes o_isd_meeting_blink {
+    to { visibility: hidden; }
+}
+
+@keyframes o_isd_meeting_pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+
+.o_isd_meeting_kind {
+    min-width: 12rem;
+}
+
+.o_isd_meeting_player {
+    max-height: 70vh;
+    background-color: #000;
+    border-radius: 0.5rem;
+}
+
+.o_isd_meeting_transcript textarea,
+.o_isd_meeting_transcript {
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+}

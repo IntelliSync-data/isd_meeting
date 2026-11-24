@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- The red Record button, always in the bar of the call -->
+    <t t-inherit="discuss.CallActionList" t-inherit-mode="extension">
+        <xpath expr="//Dropdown" position="before">
+            <button t-if="isdMeeting.isRecordingHere or isdMeeting.canRecord"
+                class="o_isd_meeting_record btn smaller d-flex m-1 border-0 rounded-circle shadow-none align-items-center"
+                t-att-class="{ 'p-0': isSmall, 'p-1': !isSmall, 'o_isd_meeting_record_on': isdMeeting.isRecordingHere }"
+                t-att-disabled="isdMeeting.state.busy or isdMeeting.state.recorder?.finishing"
+                t-att-title="isdRecordTitle"
+                t-att-aria-label="isdRecordTitle"
+                t-on-click="onClickIsdRecord">
+                <i class="fa fa-fw m-2" t-att-class="{
+                    'fa-lg': !isSmall,
+                    'fa-stop': isdMeeting.isRecordingHere,
+                    'fa-circle': !isdMeeting.isRecordingHere,
+                }"/>
+            </button>
+        </xpath>
+    </t>
+
+    <!-- Everyone in the call sees that it is being recorded -->
+    <t t-inherit="discuss.Call" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-discuss-Call-main')]" position="inside">
+            <div t-if="isdShowRecording" class="o_isd_meeting_badge position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill d-flex align-items-center gap-2"
+                 t-att-title="isdMeeting.recording.kind === 'video' ? 'Recording video and sound' : 'Recording sound'">
+                <span class="o_isd_meeting_dot"/>
+                <span class="fw-bold">REC</span>
+                <span class="text-truncate" t-esc="isdMeeting.recording.name"/>
+                <span class="font-monospace" t-esc="isdMeeting.elapsed"/>
+                <i t-if="isdMeeting.recording.kind === 'audio'" class="fa fa-microphone" title="Sound only"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

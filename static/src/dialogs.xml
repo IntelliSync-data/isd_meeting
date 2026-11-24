@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="isd_meeting.RecordKindDialog">
+        <Dialog title.translate="Record this call" size="'md'" footer="false">
+            <p class="text-muted">Everyone in the call will see that you are recording.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mb-2">
+                <button class="o_isd_meeting_kind btn btn-outline-primary flex-fill p-3 text-start" t-on-click="() => this.choose('video')">
+                    <i class="fa fa-video-camera fa-2x mb-2 d-block"/>
+                    <strong>Video + sound</strong>
+                    <div class="small text-muted">Cameras and shared screens, about 400 MB per hour</div>
+                </button>
+                <button class="o_isd_meeting_kind btn btn-outline-primary flex-fill p-3 text-start" t-on-click="() => this.choose('audio')">
+                    <i class="fa fa-microphone fa-2x mb-2 d-block"/>
+                    <strong>Sound only</strong>
+                    <div class="small text-muted">Light, about 15 MB per hour</div>
+                </button>
+            </div>
+            <p class="small text-muted mb-0">Keep this tab open until you stop: the recording is made in this browser.</p>
+        </Dialog>
+    </t>
+
+    <t t-name="isd_meeting.HostSettingsDialog">
+        <Dialog title.translate="Recording settings" size="'md'">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Who may record</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="isd_mode_host" name="isd_mode" t-att-checked="state.mode === 'host'" t-on-change="() => state.mode = 'host'"/>
+                    <label class="form-check-label" for="isd_mode_host">Only me (the host)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="isd_mode_all" name="isd_mode" t-att-checked="state.mode === 'all'" t-on-change="() => state.mode = 'all'"/>
+                    <label class="form-check-label" for="isd_mode_all">Everyone in the call</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="isd_mode_allowed" name="isd_mode" t-att-checked="state.mode === 'allowed'" t-on-change="() => state.mode = 'allowed'"/>
+                    <label class="form-check-label" for="isd_mode_allowed">Me and the people I pick</label>
+                </div>
+                <div t-if="state.mode === 'allowed'" class="ms-4 mt-2">
+                    <div t-if="!people.length" class="text-muted small">Nobody else is in the call yet.</div>
+                    <div t-foreach="people" t-as="person" t-key="person.id" class="form-check">
+                        <input class="form-check-input" type="checkbox" t-att-id="'isd_allow_' + person.id" t-att-checked="state.allowed.has(person.id)" t-on-change="() => this.toggle(person.id)"/>
+                        <label class="form-check-label" t-att-for="'isd_allow_' + person.id" t-esc="person.name"/>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3" t-if="people.length">
+                <label class="form-label fw-bold" for="isd_new_host">Make someone else the host</label>
+                <select id="isd_new_host" class="form-select" t-model="state.newHost">
+                    <option value="">Keep me as the host</option>
+                    <option t-foreach="people" t-as="person" t-key="person.id" t-att-value="person.id" t-esc="person.name"/>
+                </select>
+            </div>
+            <div t-if="meeting.recording and meeting.recording.partner_id !== meeting.myPartnerId" class="alert alert-danger d-flex align-items-center justify-content-between">
+                <span><t t-esc="meeting.recording.name"/> is recording.</span>
+                <button class="btn btn-sm btn-danger" t-on-click="stopRecording">Stop their recording</button>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-att-disabled="state.saving" t-on-click="save">Save</button>
+                <button class="btn btn-secondary" t-on-click="props.close">Cancel</button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

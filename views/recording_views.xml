@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_recording_list" model="ir.ui.view">
+        <field name="name">isd.meeting.recording.list</field>
+        <field name="model">isd.meeting.recording</field>
+        <field name="arch" type="xml">
+            <list string="Recordings" create="0" decoration-danger="state == 'failed'">
+                <field name="meeting_id"/>
+                <field name="channel_id" optional="show"/>
+                <field name="start_at"/>
+                <field name="partner_id" widget="many2one_avatar"/>
+                <field name="kind"/>
+                <field name="duration_display"/>
+                <field name="size_display"/>
+                <field name="state" widget="badge"/>
+                <button name="action_download" type="object" icon="fa-download" title="Download" invisible="state != 'done'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recording_form" model="ir.ui.view">
+        <field name="name">isd.meeting.recording.form</field>
+        <field name="model">isd.meeting.recording</field>
+        <field name="arch" type="xml">
+            <form string="Recording" create="0" edit="0">
+                <header>
+                    <button name="action_download" type="object" string="Download" icon="fa-download" class="btn-primary"
+                            invisible="state != 'done'"/>
+                    <button name="action_download_audio" type="object" string="Download Sound" icon="fa-music"
+                            invisible="state != 'done' or kind != 'video' or not audio_size"/>
+                    <button name="action_convert_mp4" type="object" string="Convert to MP4" icon="fa-film"
+                            invisible="not can_convert"/>
+                    <field name="state" widget="statusbar" statusbar_visible="recording,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <field name="player_html" nolabel="1" invisible="not player_html" class="d-block mb-3"/>
+                    <div class="alert alert-info" role="status" invisible="state not in ('recording', 'stopping')">
+                        Still recording or uploading the last pieces.
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="mp4_state != 'queued'">
+                        <i class="fa fa-spinner fa-spin me-2"/>Converting to MP4. This can take a while for a long meeting.
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="not error"><field name="error"/></div>
+                    <group>
+                        <group>
+                            <field name="meeting_id"/>
+                            <field name="partner_id" widget="many2one_avatar"/>
+                            <field name="kind"/>
+                        </group>
+                        <group>
+                            <field name="start_at"/>
+                            <field name="stop_at"/>
+                            <field name="duration_display"/>
+                            <field name="size_display"/>
+                            <field name="mp4_state" invisible="mp4_state == 'none'"/>
+                        </group>
+                    </group>
+                    <field name="audio_size" invisible="1"/>
+                    <field name="can_convert" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recording_search" model="ir.ui.view">
+        <field name="name">isd.meeting.recording.search</field>
+        <field name="model">isd.meeting.recording</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="meeting_id"/>
+                <field name="channel_id"/>
+                <field name="partner_id"/>
+                <filter name="mine" string="Recorded by Me" domain="[('partner_id.user_ids', 'in', [uid])]"/>
+                <filter name="video" string="Video" domain="[('kind', '=', 'video')]"/>
+                <filter name="audio" string="Sound Only" domain="[('kind', '=', 'audio')]"/>
+                <separator/>
+                <filter name="start_at" string="Date" date="start_at"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_meeting" string="Meeting" context="{'group_by': 'meeting_id'}"/>
+                    <filter name="group_by_partner" string="Recorded By" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_recording" model="ir.actions.act_window">
+        <field name="name">Recordings</field>
+        <field name="res_model">isd.meeting.recording</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,1103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isd_meeting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 13:19+0000\n"
+"PO-Revision-Date: 2026-11-23 13:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid ""
+"<i class=\"fa fa-spinner fa-spin me-2\"/>AI is working on this meeting. You "
+"will get a notification when it is done."
+msgstr "<i class=\"fa fa-spinner fa-spin me-2\"/>AI đang xử lý cuộc họp này. Xong sẽ có thông báo."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+msgid ""
+"<i class=\"fa fa-spinner fa-spin me-2\"/>Converting to MP4. This can take a "
+"while for a long meeting."
+msgstr "<i class=\"fa fa-spinner fa-spin me-2\"/>Đang chuyển sang MP4. Cuộc họp dài thì mất một lúc."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "<strong>AI failed:</strong>"
+msgstr "<strong>AI bị lỗi:</strong>"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__ai_state
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "AI"
+msgstr "AI"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_config.py:0
+msgid "AI Chatbot (by ISD) is not installed."
+msgstr "Chưa cài AI Chatbot (by ISD)."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_config.py:0
+msgid "AI Chatbot has no API key either."
+msgstr "AI Chatbot cũng chưa có API key."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__ai_error
+msgid "AI Error"
+msgstr "Lỗi AI"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__ai_date
+msgid "AI Generated On"
+msgstr "AI tạo lúc"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "AI History"
+msgstr "Lịch sử AI"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__ai_provider
+msgid "AI Model"
+msgstr "Model AI"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__ai_run_ids
+msgid "AI Runs"
+msgstr "Các lần chạy AI"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_config.py:0
+#: model:ir.actions.server,name:isd_meeting.action_ai_config
+#: model:ir.ui.menu,name:isd_meeting.menu_ai_config
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "AI Settings"
+msgstr "Cấu hình AI"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "AI Summary"
+msgstr "Tóm tắt AI"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_run.py:0
+msgid "AI could not write the notes of \"%(name)s\": %(error)s"
+msgstr "AI không viết được biên bản \"%(name)s\": %(error)s"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_run.py:0
+msgid "AI has finished the notes of \"%s\"."
+msgstr "AI đã viết xong biên bản \"%s\"."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "AI is already working on this meeting."
+msgstr "AI đang xử lý cuộc họp này rồi."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid ""
+"AI is listening to the recording. This takes a few minutes; you will get a "
+"notification when it is done."
+msgstr "AI đang nghe bản ghi. Mất vài phút, xong sẽ có thông báo."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid ""
+"AI will listen to the recordings and write the transcript, summary, action "
+"items and decisions. Existing AI notes are replaced. Continue?"
+msgstr "AI sẽ nghe các bản ghi rồi viết lời thoại, tóm tắt, việc cần làm và quyết định. Kết quả AI cũ sẽ bị thay. Tiếp tục?"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__action_items
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Action Items"
+msgstr "Việc cần làm"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__allowed_partner_ids
+msgid "Allowed to Record"
+msgstr "Được phép ghi"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__user_id
+msgid "Asked By"
+msgstr "Người yêu cầu"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Asked On"
+msgstr "Yêu cầu lúc"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "Attendee"
+msgstr "Người tham gia"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__attendee_ids
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Attendees"
+msgstr "Người tham gia"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__audio_mimetype
+msgid "Audio Mimetype"
+msgstr "Định dạng âm thanh"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__audio_seq
+msgid "Audio Seq"
+msgstr "Đoạn âm thanh kế tiếp"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__audio_size
+msgid "Audio Size"
+msgstr "Dung lượng âm thanh"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "Call"
+msgstr "Cuộc gọi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Cameras and shared screens, about 400 MB per hour"
+msgstr "Camera và màn hình chia sẻ, khoảng 400 MB mỗi giờ"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__can_borrow_key
+msgid "Can Borrow Key"
+msgstr "Lấy được key"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__can_convert
+msgid "Can Convert"
+msgstr "Chuyển được"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Cancel"
+msgstr "Huỷ"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__channel_id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__channel_id
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "Channel"
+msgstr "Kênh"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "Choose video or audio only."
+msgstr "Chọn video hoặc chỉ âm thanh."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid ""
+"Click <strong>Generate with AI</strong> to get the summary, action items and"
+" decisions of this meeting."
+msgstr "Bấm <strong>Tạo bằng AI</strong> để có tóm tắt, việc cần làm và quyết định của cuộc họp."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: isd_meeting
+#: model:ir.ui.menu,name:isd_meeting.menu_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+msgid "Convert to MP4"
+msgstr "Chuyển sang MP4"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__mp4_state__queued
+msgid "Converting"
+msgstr "Đang chuyển"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/meeting_service.js:0
+msgid "Could not start recording: %s"
+msgstr "Không bắt đầu ghi được: %s"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__create_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__create_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__create_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__create_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__create_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__create_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__create_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__create_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Date"
+msgstr "Ngày"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__decisions
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Decisions"
+msgstr "Quyết định"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__display_name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__display_name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__display_name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__display_name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__ai_state__done
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_run__state__done
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__state__done
+msgid "Done"
+msgstr "Xong"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_list
+msgid "Download"
+msgstr "Tải về"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+msgid "Download Sound"
+msgstr "Tải âm thanh"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_list
+msgid "Duration"
+msgstr "Thời lượng"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__duration
+msgid "Duration (min)"
+msgstr "Thời lượng (phút)"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__duration
+msgid "Duration (s)"
+msgstr "Thời lượng (giây)"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__end_at
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__state__done
+msgid "Ended"
+msgstr "Đã kết thúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_config__language__en
+msgid "English"
+msgstr "Tiếng Anh"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/ai_config.py:0
+msgid "Enter the %s API key in Meetings > Configuration > AI Settings first."
+msgstr "Hãy nhập API key %s ở Meetings > Cấu hình > Cấu hình AI trước."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__error
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__error
+msgid "Error"
+msgstr "Lỗi"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__record_mode__all
+msgid "Everyone"
+msgstr "Mọi người"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Everyone in the call"
+msgstr "Mọi người trong cuộc gọi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Everyone in the call will see that you are recording."
+msgstr "Mọi người trong cuộc gọi sẽ thấy bạn đang ghi."
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__ai_state__failed
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_run__state__failed
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__mp4_state__failed
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__state__failed
+msgid "Failed"
+msgstr "Lỗi"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__finished_at
+msgid "Finished At"
+msgstr "Xong lúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__gemini_api_key
+msgid "Gemini API Key"
+msgstr "Gemini API Key"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__gemini_model
+msgid "Gemini Model"
+msgstr "Model Gemini"
+
+#. module: isd_meeting
+#: model:ir.model.fields,help:isd_meeting.field_isd_meeting_ai_config__provider
+msgid ""
+"Gemini listens to a long recording in one go. OpenAI turns speech into text "
+"first (files over 25 MB need ffmpeg on the server), then summarises it."
+msgstr "Gemini nghe cả bản ghi dài trong một lần. OpenAI chuyển giọng nói thành chữ trước (file trên 25 MB cần ffmpeg trên server) rồi mới tóm tắt."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Generate with AI"
+msgstr "Tạo bằng AI"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_config__provider__gemini
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__guest_id
+msgid "Guest"
+msgstr "Khách"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__has_key
+msgid "Has Key"
+msgstr "Có key"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__host_partner_id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__is_host
+msgid "Host"
+msgstr "Host"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "I Attended"
+msgstr "Tôi có dự"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__id
+msgid "ID"
+msgstr "ID"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__state__ongoing
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "In Progress"
+msgstr "Đang diễn ra"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__prompt
+msgid "Instructions"
+msgstr "Hướng dẫn"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "Instructions for the AI"
+msgstr "Hướng dẫn cho AI"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__join_at
+msgid "Joined"
+msgstr "Vào lúc"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Keep me as the host"
+msgstr "Tôi vẫn là host"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid ""
+"Keep this tab open until you stop: the recording is made in this browser."
+msgstr "Giữ tab này mở cho đến khi dừng: bản ghi được ghi trên trình duyệt này."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__kind
+msgid "Kind"
+msgstr "Loại"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__last_chunk_at
+msgid "Last Chunk At"
+msgstr "Đoạn cuối nhận lúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__write_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__write_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__write_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__write_uid
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__write_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__write_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__write_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__write_date
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__leave_at
+msgid "Left"
+msgstr "Rời lúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__duration_display
+msgid "Length"
+msgstr "Độ dài"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Light, about 15 MB per hour"
+msgstr "Nhẹ, khoảng 15 MB mỗi giờ"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__mp4_state
+msgid "MP4"
+msgstr "MP4"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_discuss_channel_rtc_session
+msgid "Mail RTC session"
+msgstr "Phiên RTC email"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Make someone else the host"
+msgstr "Chuyển quyền host cho người khác"
+
+#. module: isd_meeting
+#: model:res.groups,name:isd_meeting.group_meeting_manager
+msgid "Manager"
+msgstr "Quản lý"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Me and the people I pick"
+msgstr "Tôi và những người tôi chọn"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__meeting_id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__meeting_id
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__meeting_id
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Meeting"
+msgstr "Cuộc họp"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_isd_meeting_ai_run
+msgid "Meeting AI Run"
+msgstr "Lần chạy AI của cuộc họp"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_isd_meeting_ai_config
+msgid "Meeting AI Settings"
+msgstr "Cấu hình AI cuộc họp"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_isd_meeting_attendee
+msgid "Meeting Attendee"
+msgstr "Người tham gia cuộc họp"
+
+#. module: isd_meeting
+#: model:ir.model,name:isd_meeting.model_isd_meeting_recording
+msgid "Meeting Recording"
+msgstr "Bản ghi cuộc họp"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Meeting name"
+msgstr "Tên cuộc họp"
+
+#. module: isd_meeting
+#: model:ir.actions.act_window,name:isd_meeting.action_meeting
+#: model:ir.module.category,name:isd_meeting.module_category_meeting
+#: model:ir.ui.menu,name:isd_meeting.menu_meetings
+#: model:ir.ui.menu,name:isd_meeting.menu_root
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_list
+msgid "Meetings"
+msgstr "Meetings"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.js:0
+msgid "Meetings & Recordings"
+msgstr "Cuộc họp & bản ghi"
+
+#. module: isd_meeting
+#: model:ir.actions.server,name:isd_meeting.cron_ai_runs_ir_actions_server
+msgid "Meetings: AI notes"
+msgstr "Meetings: biên bản AI"
+
+#. module: isd_meeting
+#: model:ir.actions.server,name:isd_meeting.cron_recordings_ir_actions_server
+msgid "Meetings: close abandoned recordings, convert to MP4"
+msgstr "Meetings: đóng bản ghi bị bỏ dở, chuyển MP4"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "Month"
+msgstr "Tháng"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__mp4_size
+msgid "Mp4 Size"
+msgstr "Dung lượng MP4"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__name
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: isd_meeting
+#: model:ir.model.fields,help:isd_meeting.field_isd_meeting_recording__video_seq
+msgid "Next piece of the video the browser has to send"
+msgstr "Đoạn video kế tiếp trình duyệt phải gửi"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__mp4_state__none
+msgid "No"
+msgstr "Không"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "No API key yet for the chosen AI: \"Generate with AI\" will not work."
+msgstr "AI đang chọn chưa có API key: nút \"Tạo bằng AI\" sẽ không chạy."
+
+#. module: isd_meeting
+#: model_terms:ir.actions.act_window,help:isd_meeting.action_meeting
+msgid "No recorded meeting yet"
+msgstr "Chưa có cuộc họp nào được ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Nobody else is in the call yet."
+msgstr "Chưa có ai khác trong cuộc gọi."
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__ai_state__none
+msgid "Not Yet"
+msgstr "Chưa"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+msgid "Nothing was received from the browser."
+msgstr "Không nhận được gì từ trình duyệt."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__recording_count
+msgid "Number of Recordings"
+msgstr "Số bản ghi"
+
+#. module: isd_meeting
+#: model:ir.model.constraint,message:isd_meeting.constraint_isd_meeting_ai_config_company_unique
+msgid "One AI setting per company."
+msgstr "Mỗi công ty một cấu hình AI."
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Only me (the host)"
+msgstr "Chỉ tôi (host)"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__record_mode__host
+msgid "Only the host"
+msgstr "Chỉ host"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "Only the host can do this."
+msgstr "Chỉ host mới làm được việc này."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Open Channel"
+msgstr "Mở kênh"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_config__provider__openai
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "OpenAI"
+msgstr "OpenAI"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__openai_api_key
+msgid "OpenAI API Key"
+msgstr "OpenAI API Key"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__attendee_count
+msgid "People"
+msgstr "Số người"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__record_mode__allowed
+msgid "People the host picks"
+msgstr "Người được host chọn"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_attendee__partner_id
+msgid "Person"
+msgstr "Người"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+msgid "Piece %(got)s arrived before piece %(expected)s."
+msgstr "Đoạn %(got)s đến trước đoạn %(expected)s."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__player_html
+msgid "Player"
+msgstr "Trình phát"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__provider
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__provider
+msgid "Provider"
+msgstr "Nhà cung cấp"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.xml:0
+msgid "REC"
+msgstr "REC"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__mp4_state__done
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.js:0
+msgid "Record"
+msgstr "Ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Record this call"
+msgstr "Ghi cuộc gọi này"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__partner_id
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Recorded By"
+msgstr "Người ghi"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Recorded by Me"
+msgstr "Tôi ghi"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__state__recording
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+msgid "Recording"
+msgstr "Đang ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.js:0
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Recording settings"
+msgstr "Cài đặt ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/meeting_service.js:0
+msgid "Recording stopped: %s"
+msgstr "Đã dừng ghi: %s"
+
+#. module: isd_meeting
+#: model:ir.actions.act_window,name:isd_meeting.action_recording
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__recording_ids
+#: model:ir.ui.menu,name:isd_meeting.menu_recordings
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_list
+msgid "Recordings"
+msgstr "Bản ghi"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__ai_state__running
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_run__state__running
+msgid "Running"
+msgstr "Đang chạy"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Save"
+msgstr "Lưu"
+
+#. module: isd_meeting
+#: model:res.groups,comment:isd_meeting.group_meeting_manager
+msgid "Sees and deletes every meeting, sets up AI."
+msgstr "Xem và xoá mọi cuộc họp, cấu hình AI."
+
+#. module: isd_meeting
+#: model:res.groups,comment:isd_meeting.group_meeting_user
+msgid ""
+"Sees the meetings of the channels they belong to, deletes their own "
+"recordings."
+msgstr "Xem cuộc họp của các kênh mình tham gia, xoá bản ghi do mình ghi."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__size_display
+msgid "Size"
+msgstr "Dung lượng"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "Someone is already recording this call."
+msgstr "Đã có người đang ghi cuộc gọi này."
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__kind__audio
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Sound Only"
+msgstr "Chỉ âm thanh"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.xml:0
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Sound only"
+msgstr "Chỉ âm thanh"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__openai_transcribe_model
+msgid "Speech-to-Text Model"
+msgstr "Model chuyển giọng nói thành chữ"
+
+#. module: isd_meeting
+#: model_terms:ir.actions.act_window,help:isd_meeting.action_meeting
+msgid ""
+"Start a call in Discuss and click the red <strong>Record</strong> button. "
+"When the recording stops it shows up here."
+msgstr "Bắt đầu cuộc gọi trong Discuss và bấm nút đỏ <strong>Ghi</strong>. Dừng ghi xong, bản ghi sẽ hiện ở đây."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__start_at
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__start_at
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Started"
+msgstr "Bắt đầu"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__started_at
+msgid "Started At"
+msgstr "Bắt đầu lúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__state
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_run__state
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_form
+msgid "Still recording or uploading the last pieces."
+msgstr "Đang ghi hoặc đang gửi những đoạn cuối."
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/call_patch.js:0
+msgid "Stop recording"
+msgstr "Dừng ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Stop their recording"
+msgstr "Dừng bản ghi của họ"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__stop_at
+msgid "Stopped"
+msgstr "Dừng lúc"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__state__stopping
+msgid "Stopping"
+msgstr "Đang dừng"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__summary
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__openai_chat_model
+msgid "Summary Model"
+msgstr "Model tóm tắt"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "The channel of this meeting was deleted."
+msgstr "Kênh của cuộc họp này đã bị xoá."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "The host has not allowed you to record this call."
+msgstr "Host chưa cho phép bạn ghi cuộc gọi này."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "The new host must be an employee who is in the call."
+msgstr "Host mới phải là nhân viên đang trong cuộc gọi."
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/meeting_service.js:0
+msgid "The recording could not be saved."
+msgstr "Không lưu được bản ghi."
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/meeting_service.js:0
+msgid "The recording is saved in Meetings."
+msgstr "Bản ghi đã lưu trong Meetings."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/controllers/main.py:0
+msgid "There is no call in this channel right now."
+msgstr "Kênh này hiện không có cuộc gọi."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "This meeting has no finished recording yet."
+msgstr "Cuộc họp này chưa có bản ghi nào hoàn tất."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+msgid "This recording is closed."
+msgstr "Bản ghi này đã đóng."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__transcript
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_form
+msgid "Transcript"
+msgstr "Lời thoại"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+msgid "Unknown file."
+msgstr "File không hợp lệ."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "Unknown recording mode."
+msgstr "Chế độ ghi không hợp lệ."
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid "Use the Keys of AI Chatbot"
+msgstr "Dùng key của AI Chatbot"
+
+#. module: isd_meeting
+#: model:res.groups,name:isd_meeting.group_meeting_user
+msgid "User"
+msgstr "Người dùng"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_recording_search
+msgid "Video"
+msgstr "Video"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_recording__kind__video
+msgid "Video + Sound"
+msgstr "Video + âm thanh"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Video + sound"
+msgstr "Video + âm thanh"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__video_mimetype
+msgid "Video Mimetype"
+msgstr "Định dạng video"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__video_seq
+msgid "Video Seq"
+msgstr "Đoạn video kế tiếp"
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_recording__video_size
+msgid "Video Size"
+msgstr "Dung lượng video"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_config__language__vi
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+#. module: isd_meeting
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting__ai_state__queued
+#: model:ir.model.fields.selection,name:isd_meeting.selection__isd_meeting_ai_run__state__queued
+msgid "Waiting"
+msgstr "Đang chờ"
+
+#. module: isd_meeting
+#: model:ir.model.fields,help:isd_meeting.field_isd_meeting_ai_config__prompt
+msgid ""
+"What the AI is asked to write. The answer format is added automatically."
+msgstr "Những gì AI được yêu cầu viết. Định dạng câu trả lời được thêm tự động."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting__record_mode
+msgid "Who May Record"
+msgstr "Ai được ghi"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "Who may record"
+msgstr "Ai được ghi"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "With AI Notes"
+msgstr "Có biên bản AI"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_meeting_search
+msgid "With Recordings"
+msgstr "Có bản ghi"
+
+#. module: isd_meeting
+#: model_terms:ir.ui.view,arch_db:isd_meeting.view_ai_config_form
+msgid ""
+"Without ffmpeg on the server: Gemini still works; OpenAI only takes recordings up to 25 MB\n"
+"                        and there is no MP4 conversion."
+msgstr ""
+"Server không có ffmpeg: Gemini vẫn chạy; OpenAI chỉ nhận bản ghi tối đa 25 MB\n"
+"                        và không chuyển được sang MP4."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__language
+msgid "Write Results In"
+msgstr "Viết kết quả bằng"
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/meeting.py:0
+msgid "You are not a member of this channel."
+msgstr "Bạn không phải thành viên kênh này."
+
+#. module: isd_meeting
+#. odoo-python
+#: code:addons/isd_meeting/models/recording.py:0
+msgid "ffmpeg is not installed on the server."
+msgstr "Server chưa cài ffmpeg."
+
+#. module: isd_meeting
+#: model:ir.model.fields,field_description:isd_meeting.field_isd_meeting_ai_config__has_ffmpeg
+msgid "ffmpeg on the Server"
+msgstr "Server có ffmpeg"
+
+#. module: isd_meeting
+#. odoo-javascript
+#: code:addons/isd_meeting/static/src/dialogs.xml:0
+msgid "is recording."
+msgstr "đang ghi."
+
+#. module: isd_meeting
+#: model:ir.model.fields,help:isd_meeting.field_isd_meeting_ai_config__openai_transcribe_model
+msgid ""
+"whisper-1 gives the time of each sentence; gpt-4o-transcribe is more "
+"accurate but gives no times."
+msgstr "whisper-1 có thời điểm của từng câu; gpt-4o-transcribe chính xác hơn nhưng không có thời điểm."

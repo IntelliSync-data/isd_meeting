@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_root" name="Meetings" web_icon="isd_meeting,static/description/icon.png" sequence="45"
+              groups="isd_meeting.group_meeting_user"/>
+    <menuitem id="menu_meetings" name="Meetings" parent="menu_root" action="action_meeting" sequence="10"/>
+    <menuitem id="menu_recordings" name="Recordings" parent="menu_root" action="action_recording" sequence="20"/>
+    <menuitem id="menu_config" name="Configuration" parent="menu_root" sequence="90"
+              groups="isd_meeting.group_meeting_manager"/>
+    <menuitem id="menu_ai_config" name="AI Settings" parent="menu_config" action="action_ai_config" sequence="10"/>
+</odoo>

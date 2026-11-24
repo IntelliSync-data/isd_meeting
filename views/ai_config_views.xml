@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ai_config_form" model="ir.ui.view">
+        <field name="name">isd.meeting.ai.config.form</field>
+        <field name="model">isd.meeting.ai.config</field>
+        <field name="arch" type="xml">
+            <form string="AI Settings" create="0" delete="0">
+                <header>
+                    <button name="action_borrow_chatbot_key" type="object" string="Use the Keys of AI Chatbot"
+                            invisible="not can_borrow_key" groups="isd_meeting.group_meeting_manager"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1>AI Settings</h1></div>
+                    <div class="alert alert-warning" role="alert" invisible="has_key">
+                        No API key yet for the chosen AI: "Generate with AI" will not work.
+                    </div>
+                    <group>
+                        <group string="AI">
+                            <field name="provider" widget="radio"/>
+                            <field name="language"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                            <field name="has_ffmpeg" readonly="1"/>
+                        </group>
+                        <group string="Google Gemini" invisible="provider != 'gemini'">
+                            <field name="gemini_api_key" password="True" groups="isd_meeting.group_meeting_manager"/>
+                            <field name="gemini_model"/>
+                        </group>
+                        <group string="OpenAI" invisible="provider != 'openai'">
+                            <field name="openai_api_key" password="True" groups="isd_meeting.group_meeting_manager"/>
+                            <field name="openai_transcribe_model"/>
+                            <field name="openai_chat_model"/>
+                        </group>
+                    </group>
+                    <group string="Instructions for the AI">
+                        <field name="prompt" nolabel="1" colspan="2"/>
+                    </group>
+                    <div class="text-muted small">
+                        Without ffmpeg on the server: Gemini still works; OpenAI only takes recordings up to 25 MB
+                        and there is no MP4 conversion.
+                    </div>
+                    <field name="has_key" invisible="1"/>
+                    <field name="can_borrow_key" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ai_config" model="ir.actions.server">
+        <field name="name">AI Settings</field>
+        <field name="model_id" ref="model_isd_meeting_ai_config"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open()</field>
+        <field name="groups_id" eval="[(4, ref('isd_meeting.group_meeting_manager'))]"/>
+    </record>
+</odoo>

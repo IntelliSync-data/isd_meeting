@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_meeting_user,isd.meeting user,model_isd_meeting,group_meeting_user,1,1,0,0
+access_meeting_manager,isd.meeting manager,model_isd_meeting,group_meeting_manager,1,1,0,1
+access_attendee_user,isd.meeting.attendee user,model_isd_meeting_attendee,group_meeting_user,1,0,0,0
+access_attendee_manager,isd.meeting.attendee manager,model_isd_meeting_attendee,group_meeting_manager,1,1,0,1
+access_recording_user,isd.meeting.recording user,model_isd_meeting_recording,group_meeting_user,1,1,0,1
+access_ai_run_user,isd.meeting.ai.run user,model_isd_meeting_ai_run,group_meeting_user,1,0,1,0
+access_ai_run_manager,isd.meeting.ai.run manager,model_isd_meeting_ai_run,group_meeting_manager,1,1,1,1
+access_ai_config_user,isd.meeting.ai.config user,model_isd_meeting_ai_config,group_meeting_user,1,0,0,0
+access_ai_config_manager,isd.meeting.ai.config manager,model_isd_meeting_ai_config,group_meeting_manager,1,1,1,0
