@@ -1,6 +1,6 @@
 # Meeting Recorder (isd_meeting)
 
-Module này ghi lại cuộc gọi trong **Discuss** của Odoo 18. Bản ghi được lưu trong menu **Meetings**, và có một nút để **AI** viết lời thoại, tóm tắt, việc cần làm và các quyết định.
+Module này ghi lại cuộc gọi trong **Discuss** của Odoo 18. Bản ghi được lưu trong menu **Meetings**, và có một nút để **AI** viết lời thoại, tóm tắt, việc cần làm và các quyết định. Module cũng cho mỗi người chọn **nền ảo** (làm mờ hoặc ảnh) khi bật camera.
 
 Module không làm phần mềm họp mới, chỉ thêm vào cuộc gọi sẵn có của Discuss.
 
@@ -42,6 +42,35 @@ Module không làm phần mềm họp mới, chỉ thêm vào cuộc gọi sẵn
   - Firefox ghi được.
   - Safari ra file mp4.
 
+## Nền ảo
+
+Trong cuộc gọi, menu ⋮ → **Nền ảo** mở bảng chọn:
+
+- **Không**: camera như bình thường.
+- **Làm mờ**: giống nút Blur Background của Odoo.
+- **Nền của công ty**: ảnh do Manager đưa lên, mọi người trong công ty dùng chung.
+- **Nền của tôi**: ảnh mình tự đưa lên, chỉ mình thấy và dùng. Bấm **Thêm ảnh** để upload (JPG, PNG, WebP, tối đa 10 MB).
+
+**Ai làm được gì:**
+
+| | Nền cá nhân | Nền của công ty |
+|---|---|---|
+| **Nhân viên** | Thêm, dùng, xoá của mình | Chỉ dùng |
+| **Manager** | Thêm, dùng, xoá của mình | Thêm (tick **Chia sẻ cho cả công ty** trước khi thêm ảnh), sửa, xoá; hoặc vào **Cấu hình → Nền cuộc gọi** |
+
+**Cách hoạt động:**
+- Lựa chọn được lưu trên user, nên đổi máy vẫn giữ.
+- Chọn lúc camera đang tắt thì nền được dùng khi bật camera.
+- Module dùng lại phần tách người của Odoo (MediaPipe Selfie Segmentation, chạy trên trình duyệt). Chỗ Odoo vẽ ảnh camera đã làm mờ phía sau người thì module vẽ ảnh nền đã chọn.
+- Người khác trong cuộc gọi và bản ghi đều thấy nền mới.
+- Ảnh xoá rồi thì ai đang dùng ảnh đó sẽ về **Không**.
+
+**Giới hạn:**
+- Viền tóc và tay có thể hơi nhoè, không mượt bằng Zoom hay Google Meet. Phòng đủ sáng thì đỡ hơn.
+- **Safari không có**, vì Odoo đã tắt tách nền trên Safari.
+- Tốn CPU như khi bật Blur. Máy yếu có thể giật.
+- Khách (guest) vẫn chỉ có nút Blur Background của Odoo.
+
 ## Menu Meetings
 
 | Màn hình | Nội dung |
@@ -50,6 +79,7 @@ Module không làm phần mềm họp mới, chỉ thêm vào cuộc gọi sẵn
 | **Form cuộc họp** | Tab **Bản ghi** (bấm vào một dòng để xem/nghe ngay, tải về, xoá), **Tóm tắt AI**, **Lời thoại**, **Người tham gia** (giờ vào, giờ ra), **Lịch sử AI** |
 | **Recordings** | Mọi bản ghi; nút **Tải về**, **Tải âm thanh**, **Chuyển sang MP4** |
 | **Cấu hình → Cấu hình AI** | Xem mục AI bên dưới |
+| **Cấu hình → Nền cuộc gọi** | Manager quản lý ảnh nền của công ty (xem mục Nền ảo) |
 
 Từ kênh Discuss, nút 🎞 **Cuộc họp & bản ghi** trên đầu kênh mở danh sách cuộc họp của kênh đó.
 
@@ -100,15 +130,17 @@ odoo-bin -c odoo.conf -d <db> --db-filter='^<db>$' -i isd_meeting \
   --test-enable --test-tags=/isd_meeting --stop-after-init
 ```
 
-**16 test:**
+**20 test:**
 - **Host và quyền ghi:** host là người vào đầu, khách không làm host, chuyển host khi host rời, vào lại trong 2 phút vẫn là cuộc họp cũ, ba chế độ quyền ghi, mỗi lúc một bản ghi
 - **Nhận file:** nhận từng đoạn đúng thứ tự, gửi lại không bị ghi trùng, đóng bản ghi khi người ghi rời hoặc trình duyệt im lặng, ffmpeg sửa file thật
 - **Phân quyền và xoá:** quyền xem theo thành viên kênh, ai được xoá gì, xoá cuộc họp thì xoá file
 - **Qua HTTP:** upload từng đoạn, phát lại và tua được (Range)
 - **AI:** Gemini, OpenAI (giả lập API), file quá 25 MB khi không có ffmpeg, AI báo lỗi, dùng key của AI Chatbot
+- **Nền ảo:** nền cá nhân chỉ chủ thấy, chỉ Manager chia sẻ được cho công ty, lựa chọn lưu trên user, xoá ảnh thì về Không, ảnh được thu nhỏ
 
 Đã chạy thử trên Chrome bằng cuộc gọi thật giữa 2 người, một người bật camera:
 - ghi được video có cả hai khung hình và tiếng
 - người thứ hai thấy nhãn REC
 - host đổi quyền thì nút Ghi hiện ra ở người kia
 - file phát lại được trong form bản ghi
+- chọn nền ảo: hình camera có ảnh nền của công ty phía sau; user thường không thấy ô chia sẻ và không thêm được nền của công ty

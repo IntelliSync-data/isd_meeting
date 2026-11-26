@@ -120,3 +120,21 @@ class MeetingController(http.Controller):
             as_attachment=bool(download),
         )
         return stream.get_response(content_security_policy=None)
+
+    # ------------------------------------------------------------ call backgrounds
+    @http.route('/isd_meeting/background/state', type='json', auth='user')
+    def background_state(self):
+        return request.env['isd.meeting.background']._get_state()
+
+    @http.route('/isd_meeting/background/choose', type='json', auth='user')
+    def background_choose(self, mode, background_id=False):
+        return request.env['isd.meeting.background']._choose(mode, background_id)
+
+    @http.route('/isd_meeting/background/upload', type='json', auth='user')
+    def background_upload(self, name, data, scope='personal'):
+        return request.env['isd.meeting.background']._upload(name, data, scope)
+
+    @http.route('/isd_meeting/background/delete', type='json', auth='user')
+    def background_delete(self, background_id):
+        request.env['isd.meeting.background'].browse(int(background_id)).exists().unlink()
+        return request.env['isd.meeting.background']._get_state()

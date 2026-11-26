@@ -97,4 +97,32 @@
         <field name="model_id" ref="model_isd_meeting_ai_config"/>
         <field name="domain_force">[('company_id', 'in', company_ids)]</field>
     </record>
+
+    <!-- Call backgrounds: company ones for everyone of the company, personal ones for their owner -->
+    <record id="rule_background_read" model="ir.rule">
+        <field name="name">Call backgrounds: company and own</field>
+        <field name="model_id" ref="model_isd_meeting_background"/>
+        <field name="domain_force">['|', ('user_id', '=', user.id), '&amp;', ('scope', '=', 'company'), ('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_meeting_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_background_own" model="ir.rule">
+        <field name="name">Call backgrounds: own personal ones</field>
+        <field name="model_id" ref="model_isd_meeting_background"/>
+        <field name="domain_force">[('scope', '=', 'personal'), ('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_meeting_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    <record id="rule_background_manager" model="ir.rule">
+        <field name="name">Call backgrounds: company ones and own ones (managers)</field>
+        <field name="model_id" ref="model_isd_meeting_background"/>
+        <field name="domain_force">['|', ('user_id', '=', user.id), '&amp;', ('scope', '=', 'company'), ('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_meeting_manager'))]"/>
+    </record>
 </odoo>

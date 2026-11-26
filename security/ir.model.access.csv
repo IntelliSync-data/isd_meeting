@@ -8,3 +8,5 @@ access_ai_run_user,isd.meeting.ai.run user,model_isd_meeting_ai_run,group_meetin
 access_ai_run_manager,isd.meeting.ai.run manager,model_isd_meeting_ai_run,group_meeting_manager,1,1,1,1
 access_ai_config_user,isd.meeting.ai.config user,model_isd_meeting_ai_config,group_meeting_user,1,0,0,0
 access_ai_config_manager,isd.meeting.ai.config manager,model_isd_meeting_ai_config,group_meeting_manager,1,1,1,0
+access_background_user,isd.meeting.background user,model_isd_meeting_background,group_meeting_user,1,1,1,1
+access_background_manager,isd.meeting.background manager,model_isd_meeting_background,group_meeting_manager,1,1,1,1

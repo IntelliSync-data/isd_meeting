@@ -7,4 +7,5 @@
     <menuitem id="menu_config" name="Configuration" parent="menu_root" sequence="90"
               groups="isd_meeting.group_meeting_manager"/>
     <menuitem id="menu_ai_config" name="AI Settings" parent="menu_config" action="action_ai_config" sequence="10"/>
+    <menuitem id="menu_background" name="Call Backgrounds" parent="menu_config" action="action_background" sequence="20"/>
 </odoo>

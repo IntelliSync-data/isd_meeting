@@ -140,7 +140,19 @@ Trên kênh Discuss có nút xem các meeting của kênh đó.
 
 ---
 
-## 7. Giới hạn
+## 7. Nền ảo (bản 1.1, duyệt 26/11/2026)
+
+- Trong cuộc gọi có menu **Nền ảo** với các lựa chọn: **Không**, **Làm mờ**, **ảnh của công ty**, **ảnh của tôi**.
+- **Nền của công ty:** chỉ **Manager** thêm, sửa, xoá; mọi nhân viên trong công ty dùng được.
+- **Nền cá nhân:** ai cũng tự upload được, chỉ người đó thấy và dùng; Manager cũng có nền cá nhân.
+- Nhớ lựa chọn cho lần gọi sau, lưu trên user.
+- **Kỹ thuật:** patch `BlurManager` của mail. Chỗ vẽ ảnh camera đã làm mờ phía sau người thì vẽ ảnh đã chọn (phủ kín khung). Bật bằng `store.settings.useBlur` như nút Blur của Odoo.
+- **Model:** `isd.meeting.background` (ảnh, phạm vi công ty / cá nhân, người sở hữu, công ty); trên `res.users` thêm `isd_meeting_bg_mode` (none / blur / image) và `isd_meeting_bg_id`.
+- **Giới hạn:** không chạy trên Safari, tốn CPU, viền không mượt bằng Zoom hay Google Meet; khách chỉ có nút Blur của Odoo.
+
+---
+
+## 8. Giới hạn
 
 - **Người ghi phải ở lại trong cuộc gọi.** Họ rời đi thì dừng ghi; phần đã ghi vẫn còn, và người khác có quyền thì bấm ghi tiếp, thành bản ghi mới.
 - **Chất lượng bản ghi phụ thuộc máy và mạng của người ghi.** Ghép video nhiều người tốn CPU.

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Meeting Recorder (by ISD)',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.1.0',
     'category': 'ISD Modules',
     'summary': 'Record Discuss calls (video or audio only), keep them in a Meetings menu '
                'and let AI write the transcript, summary and action items',
@@ -16,6 +16,7 @@ Meeting Recorder (by ISD)
   with a player, download and delete
 * One button asks AI (Gemini or OpenAI) for the transcript, summary,
   action items and decisions
+* Virtual background in calls: blur, a company picture or your own picture
     """,
     'author': 'IntelliSyncData',
     'website': 'https://intellisyncdata.com',
@@ -29,6 +30,7 @@ Meeting Recorder (by ISD)
         'views/meeting_views.xml',
         'views/recording_views.xml',
         'views/ai_config_views.xml',
+        'views/background_views.xml',
         'views/menus.xml',
     ],
     'assets': {

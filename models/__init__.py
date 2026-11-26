@@ -4,3 +4,4 @@ from . import recording
 from . import rtc_session
 from . import ai_config
 from . import ai_run
+from . import background

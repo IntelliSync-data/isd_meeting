@@ -55,3 +55,85 @@
     white-space: pre-wrap;
     font-size: 0.9rem;
 }
+
+// ---------------------------------------------------------------- virtual background
+.o_isd_meeting_bg_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
+}
+
+.o_isd_meeting_bg_tile {
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border: 2px solid var(--border-color, #dee2e6) !important;
+    border-radius: 0.5rem;
+    background-color: var(--gray-100, #f3f4f6);
+
+    &:hover .o_isd_meeting_bg_delete {
+        opacity: 1;
+    }
+
+    &.o_isd_meeting_bg_chosen {
+        border-color: var(--primary, #714b67) !important;
+        box-shadow: 0 0 0 2px var(--primary, #714b67);
+    }
+}
+
+.o_isd_meeting_bg_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.o_isd_meeting_bg_icon {
+    position: absolute;
+    inset: 0 0 1.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-600, #6b7280);
+}
+
+.o_isd_meeting_bg_blur {
+    background: radial-gradient(circle, #cbd5e1 0%, #94a3b8 100%);
+    filter: blur(0.5px);
+    color: #334155;
+}
+
+.o_isd_meeting_bg_label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: rgba(17, 24, 39, 0.6);
+    color: #fff;
+}
+
+.o_isd_meeting_bg_delete {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    background-color: rgba(17, 24, 39, 0.7);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.15s;
+
+    &:hover {
+        background-color: #ef4444;
+    }
+}
+
+@media (hover: none) {
+    .o_isd_meeting_bg_delete {
+        opacity: 1;
+    }
+}
