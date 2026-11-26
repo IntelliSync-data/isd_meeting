@@ -1,6 +1,7 @@
 import { Component, reactive, useState } from "@odoo/owl";
 import { BlurManager } from "@mail/discuss/call/common/blur_manager";
 import { callActionsRegistry } from "@mail/discuss/call/common/call_actions";
+import { Rtc } from "@mail/discuss/call/common/rtc_service";
 import { onChange } from "@mail/utils/common/misc";
 import { Dialog } from "@web/core/dialog/dialog";
 import { isBrowserSafari } from "@web/core/browser/feature_detection";
@@ -62,6 +63,46 @@ patch(BlurManager.prototype, {
         this._drawWithCompositing(this.canvasMask, "destination-in");
         this._drawWithCompositing(this.canvasBlur, "destination-over");
         ctx.restore();
+    },
+});
+
+/**
+ * Starting the camera with blur or a picture takes a few seconds (the
+ * segmentation model is downloaded). Odoo lets a second start overlap the
+ * first one, which then closes the first pipeline half-way: "The source stream
+ * was removed before the beginning of the blur process", a black camera, and
+ * the blur switched off. Camera changes run one after the other here, a click
+ * while the camera is starting is ignored, and once done the camera is
+ * restarted if the background was changed in the meantime.
+ */
+let cameraJob = null;
+
+patch(Rtc.prototype, {
+    async toggleVideo(type, force) {
+        if (type !== "camera") {
+            return super.toggleVideo(...arguments);
+        }
+        if (cameraJob && force === undefined) {
+            return cameraJob; // a click on the camera button while it is starting
+        }
+        let startedWithBlur;
+        const run = () => {
+            startedWithBlur = Boolean(this.store.settings.useBlur);
+            return super.toggleVideo(type, force);
+        };
+        const job = (cameraJob || Promise.resolve()).then(run, run);
+        cameraJob = job;
+        try {
+            return await job;
+        } finally {
+            if (cameraJob === job) {
+                cameraJob = null;
+                // Odoo skips a blur change made while the camera was starting
+                if (this.state.sendCamera && Boolean(this.store.settings.useBlur) !== startedWithBlur) {
+                    this.toggleVideo("camera", true);
+                }
+            }
+        }
     },
 });
 
